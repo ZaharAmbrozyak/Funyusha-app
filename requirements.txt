@@ -1,0 +1,11 @@
+discord
+asyncio
+youtube-dl
+pillow
+asyncio
+random
+time
+io
+sys
+typing
+os

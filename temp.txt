@@ -1,0 +1,64 @@
+@commands.Cog.listener()
+     async def on_command_error(self, ctx, error):
+          '''All error exceptions'''
+          if isinstance(error, commands.UserInputError):
+               await ctx.send("При команде случилась ошибка!")
+          if isinstance(error, commands.BadArgument):
+               await ctx.send("Неправильный аргумент!")
+          if isinstance(error, commands.CheckFailure):
+               await ctx.send("Вы не можете выполнить команду в этой ситуации")
+          if isinstance(error, commands.ExtensionError):
+               await ctx.send("Ошибка в расширении!")
+          if isinstance(error, commands.CommandError):
+               pass
+          if isinstance(error, commands.MissingRequiredArgument):
+               await ctx.send("Отсутсвуют нужные аргументы!")
+          if isinstance(error, commands.TooManyArguments):
+               await ctx.send('Слишком много аргументов!')
+          if isinstance(error, commands.MissingPermissions):
+               await ctx.send("У вас нет прав использовать эту команду!")
+          if isinstance(error, commands.BotMissingPermissions):
+               await ctx.send("У меня недостаточно прав, чтобы сделать действия команды!")
+          if isinstance(error, commands.CommandOnCooldown):
+               await ctx.send("Подождите немного! Команда на кулдауне!")
+          if isinstance(error, commands.DisabledCommand):
+               await ctx.message.reply("Команда не работает на данный момент")
+          if isinstance(error, commands.NotOwner):
+               await ctx.send("Вы не создатель бота, и не можете использовать эту команду!")
+          if isinstance(error, commands.ExtensionNotLoaded):
+               await ctx.send("Расширение не загрузилось!")
+          if isinstance(error, commands.ExtensionAlreadyLoaded):
+               await ctx.send("Расширение уже загружено!")
+          if isinstance(error, commands.NoEntryPointError):
+               await ctx.send("Расширение не имеет функции 'setup'!")
+          if isinstance(error, commands.ExtensionFailed):
+               await ctx.send("Во время загрузки расширения, случилась ошибка!")
+          if isinstance(error, commands.CommandRegistrationError):
+               await ctx.send("Имя команды уже загружено, поэтому команда не может быть добавлена!")
+          if isinstance(error, commands.ChannelNotReadable):
+               await ctx.send("Я не могу взаимодействовать с каналом, по скольку у меня нет прав читать сообщение в нём")
+          if isinstance(error, commands.BadColourArgument):
+               await ctx.send("Неправильный аргумент цвета!")
+          if isinstance(error, commands.MissingRole):
+               await ctx.send("У тебя нужной роли чтобы использовать эту команду!")
+          if isinstance(error, commands.BotMissingRole):
+               await ctx.send("У меня нету нужной роли чтобы сделать действия этой команды!")
+          if isinstance(error, commands.NSFWChannelRequired):
+               await ctx.send("Нужен канал с позначкой 'NSFW' для использования этой команды!")
+          # Not Found
+          if isinstance(error, commands.MemberNotFound):
+               await ctx.send("Этот пользователь не существует!")
+          if isinstance(error, commands.GuildNotFound):
+               await ctx.send("Этого сервера не существует!")
+          if isinstance(error, commands.RoleNotFound):
+               await ctx.send("Этой роли не существует!")
+          if isinstance(error, commands.UserNotFound):
+               await ctx.send("Этот юзер не существует!")
+          if isinstance(error, commands.EmojiNotFound):
+               await ctx.send("Этого смайлика не существует!")
+          if isinstance(error, commands.MessageNotFound):
+               await ctx.send("Этого сообщения не существует!")
+          if isinstance(error, commands.ExtensionNotFound):
+               await ctx.send("Расширение не найдено!")
+          if isinstance(error, commands.ChannelNotFound):
+               await ctx.send("Канал не найден!")
