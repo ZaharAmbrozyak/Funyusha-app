@@ -29,7 +29,8 @@ async def перезагрузить(ctx, extension: str='MainCommands') -> None
      bot.load_extension(f"cogs.{extension}")
      await ctx.message.reply(f"Разширение '{extension}' перезагружено успешно!")
 
-[bot.load_extension(f'cogs.{filename[:-3]}') for filename in listdir('./cogs') if filename.endswith('.py')]
-
 if __name__ == '__main__':
+     
+     [bot.load_extension(f'cogs.{filename[:-3]}') for filename in listdir('./cogs') if filename.endswith('.py')]
+
      bot.run(environ.get('TOKEN'))

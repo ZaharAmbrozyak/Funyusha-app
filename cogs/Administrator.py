@@ -31,6 +31,7 @@ class Administrator(commands.Cog):
      
      @commands.command(aliases=['повторить'])
      @commands.has_permissions(administrator=True)
+     @commands.is_owner()
      async def repeat(self, ctx, count: int=2, *, message: str) -> None:
           '''Bot will repeat messages n times'''
           [await ctx.send(message) for i in range(0, count)]
